@@ -13,13 +13,13 @@
     margin-bottom: 20px;
 }
 
-h1 {
+.login-container h1 {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-p {
+.login-container p {
     color: #6b6b6b;
     font-size: 16px;
     margin-bottom: 30px;

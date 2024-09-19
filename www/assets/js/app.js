@@ -1,6 +1,35 @@
-var app = angular.module('myApp', ['ngRoute']);
+var app_opherton = angular.module('app_opherton', ['ngRoute']);
 
-app_opherton.config(['$httpProvider', function ($httpProvider, $rootScope) {
+app_opherton.run(['$window', '$rootScope', '$http', '$location', function ($window, $rootScope, $http, $location) { }
+
+]);
+
+// Definición del interceptor
+app_opherton.factory('httpRequestInterceptor', ['$q', function ($q) {
+    return {
+        request: function (config) {
+            // Por ejemplo, agregar un token de autenticación
+            config.headers = config.headers || {};
+            // config.headers.Authorization = 'Bearer token';
+            return config;
+        },
+        requestError: function (rejection) {
+            // Manejar errores de solicitud
+            return $q.reject(rejection);
+        },
+        response: function (response) {
+            // Procesar la respuesta si es necesario
+            return response;
+        },
+        responseError: function (rejection) {
+            // Manejar errores de respuesta
+            return $q.reject(rejection);
+        }
+    };
+}]);
+
+// Rutas
+app_opherton.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.interceptors.push('httpRequestInterceptor');
 }]);
 

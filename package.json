@@ -13,9 +13,14 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "cordova": {
-    "platforms": []
+    "platforms": [
+      "browser"
+    ]
   },
   "dependencies": {
     "framework7": "^8.3.3"
+  },
+  "devDependencies": {
+    "cordova-browser": "^7.0.0"
   }
 }
